@@ -1,6 +1,6 @@
 import React from "react";
+//import Checkbox from "./checkbox";
 import "./App.css";
-
 function ValidationMessage(props) {
   if (!props.valid) {
     return <div className="error-msg">{props.message}</div>;
@@ -18,6 +18,12 @@ class App extends React.Component {
     passwordValid: false,
     passwordConfirm: "",
     passwordConfirmValid: false,
+    dropdown: "",
+    dropdownValid: false,
+
+    // checkboxmsg: "",
+    // checkboxValid: false,
+
     formValid: false,
     errorMsg: {},
   };
@@ -28,11 +34,49 @@ class App extends React.Component {
       emailValid,
       passwordValid,
       passwordConfirmValid,
+      dropdownValid,
+     // checkboxValid,
     } = this.state;
     this.setState({
       formValid:
-        usernameValid && emailValid && passwordValid && passwordConfirmValid,
+        usernameValid &&
+        emailValid &&
+        passwordValid &&
+        passwordConfirmValid &&
+        dropdownValid 
+       // checkboxValid,
     });
+  };
+  // UpdateCheckbox = (checkboxValid) => {
+  //   this.setState({ checkboxValid }, this.ValidateCheckBox);
+  // };
+  // ValidateCheckBox = () => {
+  //   var { checkboxmsg } = this.state;
+  //   var {checkboxValid}=this.checkboxValid;
+  //   checkboxValid = true
+  //   let errorMsg = { ...this.state.errorMsg };
+  //   if (checkboxValid) { 
+  //     checkboxmsg = "checked";
+  //     console.log('ok1');
+  //   } else {
+  //     console.log('ok2');
+  //     checkboxmsg = "unchecked";
+  //     errorMsg.checkbox="please check the box"
+  //   }
+
+  //   this.setState({ checkboxValid, errorMsg }, this.validateForm);
+  // };
+  updateDropdown = (dropdown) => {
+    this.setState({ dropdown }, this.validateDropdown);
+  };
+  validateDropdown = () => {
+    const { dropdown } = this.state;
+    let dropdownValid = true;
+    let errorMsg = { ...this.state.errorMsg };
+    if (dropdown === "") {
+      errorMsg.dropdown = "Select here";
+    }
+    this.setState({ dropdownValid, errorMsg }, this.validateForm);
   };
 
   updateUsername = (username) => {
@@ -121,6 +165,23 @@ class App extends React.Component {
         <main role="main">
           <form action="#" id="js-form">
             <div className="form-group">
+              <label htmlFor="dropdown">Dropdown your country</label>
+              <ValidationMessage
+                valid={this.state.dropdownValid}
+                message={this.state.errorMsg.dropdown}
+              />
+              <select onChange={(e) => this.validateDropdown(e.target.value)}>
+                <option value="">select...</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Canada">Canada</option>
+                <option value="India">India</option>
+                <option value="London">London</option>
+                <option value="Other">Other</option>
+              </select> 
+            </div>
+          
+            
+            <div className="form-group">
               <label htmlFor="username">Username</label>
               <ValidationMessage
                 valid={this.state.usernameValid}
@@ -173,6 +234,7 @@ class App extends React.Component {
                 valid={this.state.passwordConfirmValid}
                 message={this.state.errorMsg.passwordConfirm}
               />
+
               <input
                 type="password"
                 id="password-confirmation"
@@ -182,6 +244,7 @@ class App extends React.Component {
                 onChange={(e) => this.updatePasswordConfirm(e.target.value)}
               />
             </div>
+
             <div className="form-controls">
               <button
                 className="button"
