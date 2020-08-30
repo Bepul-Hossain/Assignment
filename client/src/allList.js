@@ -44,14 +44,19 @@ class MoviesList extends Component {
             {
                 Header: 'ID',
                 accessor: '_id',
-                filterable: true,
+                
             },
             {
                 Header: 'Name',
-                accessor: 'name',
+                accessor: 'username',
                 filterable: true,
+            },
+            {
+                Header: 'Email',
+                accessor: 'email',
+               
             }
-
+            
         ]
 
         var showTable = true
@@ -69,7 +74,7 @@ class MoviesList extends Component {
                         data={movies}
                         columns={columns}
                         loading={isLoading}
-                        defaultPageSize={10}
+                        defaultPageSize={5}
                         showPageSizeOptions={true}
                         minRows={0}
                     />

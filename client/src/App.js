@@ -21,7 +21,7 @@ function App() {
     <Router>
       <MoviesList/> 
       <Switch>
-         <Route  path ="/allMovie" exact component = {Insert}></Route>           
+         <Route  path ="/" exact component = {Insert}></Route>           
        </Switch>
     </Router>
   );
