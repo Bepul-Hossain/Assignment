@@ -10,7 +10,7 @@ function ValidationMessage(props) {
   return null;
 }
 
-class App extends React.Component {
+class Insert extends React.Component {
   state = {
     username: "",
     usernameValid: false,
@@ -204,4 +204,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Insert;
