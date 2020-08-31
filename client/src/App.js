@@ -5,8 +5,10 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import Insert from './insert'
-import MoviesList from './allList'
+import Insert from './component/insert'
+import MoviesList from './component/allList'
+import ImageUpload from './imageUpload'
+import ReactUploadImage from "./reactUploadImage";
 //import "./imageUpload.css";
 //import ImageUpload from "./imageUpload";
 function ValidationMessage(props) {
@@ -19,10 +21,13 @@ function ValidationMessage(props) {
 function App() {
   return (
     <Router>
+      <a href="../public/image.html">Button</a>
       <MoviesList/> 
       <Switch>
          <Route  path ="/" exact component = {Insert}></Route>           
        </Switch>
+       <ReactUploadImage/>
+       <ImageUpload/>
     </Router>
   );
 }

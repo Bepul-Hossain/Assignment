@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import api from "./api";
+import "../App.css";
+import api from "../api";
 //import "./imageUpload.css";
 //import ImageUpload from "./imageUpload";
 function ValidationMessage(props) {
@@ -109,7 +109,7 @@ class Insert extends React.Component {
 
     const payload = { username, email };
 
-    await api.insertMovie(payload).then((res) => {
+    await api.insertTable(payload).then((res) => {
       window.alert(`Movie inserted successfully`);
       this.setState({
         username: "",
@@ -120,6 +120,7 @@ class Insert extends React.Component {
   render() {
     return (
       <div className="App">
+        <a href="../public/image.html">Image button</a>
         <header>Form Validation</header>
         <main role="main">
           <form action="#" id="js-form">
@@ -186,7 +187,7 @@ class Insert extends React.Component {
                 onChange={(e) => this.updateEmail(e.target.value)}
               />
             </div>
-
+            
             <div className="form-controls">
               <button
                 className="button"
@@ -198,6 +199,7 @@ class Insert extends React.Component {
               </button>
             </div>
           </form>
+         
         </main>
       </div>
     );

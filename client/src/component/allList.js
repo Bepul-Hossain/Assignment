@@ -1,7 +1,7 @@
 // import React, { Component } from 'react'
 import React, {Component} from 'react'
 import ReactTable from 'react-table'
-import api from './api.js'
+import api from '../api.js'
 
 import styled from 'styled-components'
 import 'react-table/react-table.css'
@@ -28,7 +28,7 @@ class MoviesList extends Component {
     componentDidMount = async()=>{
         this.setState({isLoading: true})
 
-        await api.getAllMovies().then(movies=>{
+        await api.getAllTable().then(movies=>{
             this.setState({
                 movies: movies.data.data,
                 isLoading: false,
