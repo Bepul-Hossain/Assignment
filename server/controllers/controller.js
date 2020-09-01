@@ -1,6 +1,6 @@
-const Movie = require('../models/movie-model.js')
+const Movie = require('../models/model.js')
 //'movies' is a mongdb database name
-createMovie = (req,res) =>{
+create = (req,res) =>{
     const body = req.body
     //console.log(body)
     if (!body) {
@@ -25,7 +25,7 @@ createMovie = (req,res) =>{
         })
     })
 }
-getMovie = async(req,res)=>{
+getall = async(req,res)=>{
    await Movie.find({}, (err,movies)=>{
        if (err) {
            return res.status(400).json({success: false, error: err})
@@ -40,6 +40,6 @@ getMovie = async(req,res)=>{
 
 
 module.exports = {
-    createMovie,
-    getMovie,
+    create,
+    getall,
 }

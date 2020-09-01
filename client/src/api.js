@@ -4,9 +4,9 @@ const api = axios.create({
     baseURL: '/api',
 })
 
-export const insertTable = (payload)=> api.post('/movierouter', payload)
+export const insertTable = (payload)=> api.post('/insertrouter', payload)
 
-export const getAllTable = ()=> api.get(`/getmovies`)
+export const getAllTable = ()=> api.get(`/getallrouter`)
 
 const apis = {
     insertTable,
