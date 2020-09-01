@@ -8,12 +8,6 @@ import 'react-table/react-table.css'
 
 const Wrapper = styled.div `padding: 0  40px 40px 40px`
 
-const Delete = styled.div `color: #ef9bof; cursor: pointer`
-const Update = styled.div`
-    color: #ef9b0f;
-    cursor: pointer;
-`
-
 
 
 class MoviesList extends Component {

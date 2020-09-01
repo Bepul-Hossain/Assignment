@@ -1,8 +1,6 @@
 import React from "react";
 import "../App.css";
 import api from "../api";
-//import "./imageUpload.css";
-//import ImageUpload from "./imageUpload";
 function ValidationMessage(props) {
   if (!props.valid) {
     return <div className="error-msg">{props.message}</div>;
@@ -120,7 +118,6 @@ class Insert extends React.Component {
   render() {
     return (
       <div className="App">
-        <a href="../public/image.html">Image button</a>
         <header>Form Validation</header>
         <main role="main">
           <form action="#" id="js-form">
